@@ -1,6 +1,6 @@
 export const api_url = "https://newsapi.org/v2";
 
-export const api_key = "a1d4258b4592479ba81315cdc84b306a";
+export const api_key = "";
 
 export const categories = [
   {
