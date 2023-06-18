@@ -6,15 +6,15 @@ import SingleNews from "../components/SingleNews";
 
 const News = () => {
   const { news } = useContext(NewsContext);
+  // console.log(news);
   const newsData = news.articles;
-  console.log(news);
 
   return (
     <ScrollView>
       <View style={cls.container}>
         {newsData &&
           newsData.map((i) => {
-            return <SingleNews item={i} key={i.publishedAt} />;
+            return <SingleNews item={i} key={i.title} />;
           })}
       </View>
     </ScrollView>

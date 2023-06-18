@@ -2,30 +2,41 @@ export const api_url = "https://newsapi.org/v2";
 
 export const api_key = "";
 
+import home from "../assets/home.png";
+import tech from "../assets/tech.png";
+import entertainment from "../assets/entertainment.png";
+import health from "../assets/health.png";
+import sports from "../assets/sports.png";
+
+import bbc_news from "../assets/bbc.png";
+import cnn_news from "../assets/cnn.png";
+import fox_news from "../assets/fox.webp";
+import google_news from "../assets/google.webp";
+
 export const categories = [
   {
     id: 1,
-    url: "https://img.icons8.com/fluent/96/000000/news.png",
+    url: home,
     name: "general",
   },
   {
     id: 2,
-    url: "https://img.icons8.com/fluent/96/000000/artificial-intelligence.png",
+    url: tech,
     name: "technology",
   },
   {
     id: 3,
-    url: "https://img.icons8.com/fluent/96/000000/movie-projector.png",
+    url: entertainment,
     name: "entertainment",
   },
   {
     id: 4,
-    url: "https://img.icons8.com/fluent/96/000000/stethoscope.png",
+    url: health,
     name: "health",
   },
   {
     id: 5,
-    url: "https://img.icons8.com/fluent/96/000000/trophy.png",
+    url: sports,
     name: "sports",
   },
 ];
@@ -34,21 +45,21 @@ export const sources = [
   {
     id: "bbc-news",
     name: "BBC News",
-    url: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/BBC_News_2019.svg/1200px-BBC_News_2019.svg.png",
+    url: bbc_news,
   },
   {
     id: "cnn",
     name: "CNN",
-    url: "https://bankimooncentre.org/wp-content/uploads/2020/06/cnn-logo-square.png",
+    url: cnn_news,
   },
   {
     id: "fox-news",
     name: "Fox News",
-    url: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/Fox_News_Channel_logo.svg/768px-Fox_News_Channel_logo.svg.png",
+    url: fox_news,
   },
   {
     id: "google-news",
     name: "Google News",
-    url: "https://upload.wikimedia.org/wikipedia/commons/0/0b/Google_News_icon.png",
+    url: google_news,
   },
 ];

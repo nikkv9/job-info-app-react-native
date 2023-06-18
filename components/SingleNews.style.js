@@ -15,7 +15,7 @@ const styles = StyleSheet.create({
   img: {
     height: windowHeight * 0.4,
     width: windowWidth,
-    resizeMode: "cover",
+    // resizeMode: "cover",
   },
   title: {
     fontSize: "1.4rem",

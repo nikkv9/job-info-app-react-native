@@ -13,12 +13,30 @@ export const ContextApi = ({ children }) => {
   const [index, setIndex] = useState(1);
 
   const newsFetch = async () => {
-    const { data } = await axios.get(
-      `${api_url}/top-headlines?language=en&category=${category}&sources=${source}&apiKey=${api_key}`
-    );
-    console.log(data);
-    setNews(data);
-    setIndex(1);
+    try {
+      const { data } = await axios.get(
+        `${api_url}/top-headlines?language=en&category=${category}&sources=${source}&apiKey=${api_key}`
+      );
+      console.log(data);
+      setNews(data);
+      setIndex(0);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const refreshNews = async () => {
+    try {
+      const { data } = await axios.get(
+        `${api_url}/top-headlines?language=en&category=general&sources=${source}&apiKey=${api_key}`
+      );
+
+      console.log(data);
+      setNews(data);
+      setIndex(1);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   useEffect(() => {
@@ -26,7 +44,15 @@ export const ContextApi = ({ children }) => {
   }, [category, source]);
   return (
     <NewsContext.Provider
-      value={{ news, index, setIndex, setCategory, setSource }}
+      value={{
+        news,
+        index,
+        setIndex,
+        setCategory,
+        setSource,
+        newsFetch,
+        refreshNews,
+      }}
     >
       {children}
     </NewsContext.Provider>
