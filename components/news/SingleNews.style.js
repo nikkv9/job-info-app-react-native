@@ -8,6 +8,7 @@ const styles = StyleSheet.create({
     marginBottom: "3rem",
     borderBottomColor: "lightgray",
     borderBottomWidth: ".1rem",
+    backgroundColor: "white",
   },
   contentContainer: {
     padding: "1rem",
@@ -15,7 +16,7 @@ const styles = StyleSheet.create({
   img: {
     height: windowHeight * 0.4,
     width: windowWidth,
-    // resizeMode: "cover",
+    resizeMode: "cover",
   },
   title: {
     fontSize: "1.4rem",

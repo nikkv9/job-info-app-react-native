@@ -1,6 +1,6 @@
 import React from "react";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import NewsTabs from "../components/NewsTabs";
+import NewsTabs from "../components/news/NewsTabs";
 // import HeaderBtn from "../components/layout/HeaderBtn";
 // import hamburgerIcon from "../assets/align-left.svg";
 // import userIcon from "../assets/user.svg";

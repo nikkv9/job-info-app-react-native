@@ -3,10 +3,10 @@ import React, { useContext } from "react";
 import cls from "./NewsTabs.style.js";
 import { useState } from "react";
 import { SceneMap, TabView } from "react-native-tab-view";
-import Discover from "../screens/Discover.js";
-import News from "../screens/News.js";
-import TopNavigation from "./layout/TopNavigation.js";
-import { NewsContext } from "../api/context_api.js";
+import Discover from "../../screens/Discover.js";
+import News from "../../screens/News.js";
+import TopNavigation from "../layout/TopNavigation.js";
+import { NewsContext } from "../../api/context_api.js";
 
 const NewsTabs = () => {
   const layout = useWindowDimensions();

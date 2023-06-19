@@ -22,6 +22,20 @@ const styles = StyleSheet.create({
     backgroundColor: "gray",
     color: "white",
   },
+  crossIconContainer: {
+    position: "absolute",
+    zIndex: 999,
+    right: 0,
+    margin: "1rem",
+    height: "2.5rem",
+    width: "2.5rem",
+    borderRadius: "50%",
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "white",
+    borderColor: "red",
+    borderWidth: ".1rem",
+  },
 });
 
 export default styles;

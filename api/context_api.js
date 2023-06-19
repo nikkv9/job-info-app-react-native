@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { createContext, useEffect, useState } from "react";
-import { api_key, api_url } from "./api";
+import { api_url } from "./api";
+import { api_key } from "@env";
 
 // Create a new context
 export const NewsContext = createContext();
@@ -15,11 +16,23 @@ export const ContextApi = ({ children }) => {
   const newsFetch = async () => {
     try {
       const { data } = await axios.get(
-        `${api_url}/top-headlines?language=en&category=${category}&sources=${source}&apiKey=${api_key}`
+        `${api_url}/top-headlines?language=en&category=${category}&apiKey=${api_key}`
       );
       console.log(data);
       setNews(data);
-      setIndex(0);
+      setIndex(1);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  const sourceFetch = async () => {
+    try {
+      const { data } = await axios.get(
+        `${api_url}/top-headlines?sources=${source}&apiKey=${api_key}`
+      );
+      console.log(data);
+      setNews(data);
+      setIndex(1);
     } catch (error) {
       console.log(error);
     }
@@ -28,7 +41,7 @@ export const ContextApi = ({ children }) => {
   const refreshNews = async () => {
     try {
       const { data } = await axios.get(
-        `${api_url}/top-headlines?language=en&category=general&sources=${source}&apiKey=${api_key}`
+        `${api_url}/top-headlines?language=en&category=general&apiKey=${api_key}`
       );
 
       console.log(data);
@@ -41,6 +54,7 @@ export const ContextApi = ({ children }) => {
 
   useEffect(() => {
     newsFetch();
+    sourceFetch();
   }, [category, source]);
   return (
     <NewsContext.Provider
@@ -51,6 +65,7 @@ export const ContextApi = ({ children }) => {
         setCategory,
         setSource,
         newsFetch,
+        sourceFetch,
         refreshNews,
       }}
     >

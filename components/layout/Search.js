@@ -1,7 +1,16 @@
-import { View, Text, TextInput, TouchableOpacity } from "react-native";
+import {
+  View,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  Modal,
+  Dimensions,
+} from "react-native";
 import React, { useContext, useState } from "react";
 import cls from "./Search.style";
 import { NewsContext } from "../../api/context_api";
+import SingleNews from "../news/SingleNews";
+import Icon from "react-native-vector-icons/FontAwesome";
 
 const Search = () => {
   const { news } = useContext(NewsContext);
@@ -18,6 +27,11 @@ const Search = () => {
     }
     setSearchResults(newsData.filter((query) => query.title.includes(text)));
   };
+
+  const modalHandle = (n) => {
+    setOpenModal(true);
+    setCurrNews(n);
+  };
   return (
     <View style={cls.container}>
       <TextInput
@@ -27,13 +41,36 @@ const Search = () => {
         onChangeText={(text) => searchHandle(text)}
       />
 
+      {/* search results  */}
       <View style={cls.searchResults}>
         {searchResults.slice(0, 5).map((data) => (
-          <TouchableOpacity key={data.title} activeOpacity={0.7}>
+          <TouchableOpacity
+            key={data.title}
+            activeOpacity={0.7}
+            onPress={() => modalHandle(data)}
+          >
             <Text style={cls.resultText}>{data.title}</Text>
           </TouchableOpacity>
         ))}
       </View>
+
+      {/* modal  */}
+      <Modal
+        animationType="slide"
+        transparent={true}
+        visible={openModal}
+        onRequestClose={() => setOpenModal(!openModal)}
+      >
+        <TouchableOpacity
+          onPress={() => setOpenModal(!openModal)}
+          style={cls.crossIconContainer}
+        >
+          <Icon name="times" size={20} color="red" />
+        </TouchableOpacity>
+        <View>
+          <SingleNews item={currNews} />
+        </View>
+      </Modal>
     </View>
   );
 };

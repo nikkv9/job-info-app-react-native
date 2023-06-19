@@ -1,7 +1,7 @@
 import { View, Text, Image, Linking } from "react-native";
 import React from "react";
 import cls from "./SingleNews.style";
-import noImg from "../assets/no_img.png";
+import noImg from "../../assets/no_img.png";
 
 const SingleNews = ({ item }) => {
   return (

@@ -1,7 +1,5 @@
 export const api_url = "https://newsapi.org/v2";
 
-export const api_key = "";
-
 import home from "../assets/home.png";
 import tech from "../assets/tech.png";
 import entertainment from "../assets/entertainment.png";
